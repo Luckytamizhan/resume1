@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta  name="viewport" content="width=device-width,initial-scale=1.0">
+       
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;500;700&family=Space+Grotesk:wght@500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #ff4d4d;
+            --accent: #4d79ff;
+            --glass: rgba(245, 225, 235, 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(45deg, #0a0a0a, #2a2a2a);    
+            color: white;
+            overflow-x: hidden;
+        }
+
+        .glass {
+            background: var(--glass);
+            backdrop-filter: blur(15px);
+            border-radius: 15px;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+      
+
+        /* Header Styles */
+        header {
+            position: fixed;
+            width: 100%;
+            padding: 1.5rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            transition: 0.4s;
+        }
+
+        .logo {
+            font-family: 'Bebas Neue', cursive;
+            font-size: 2.5rem;
+            letter-spacing: 3px;
+            background: linear-gradient(45deg, var(--primary), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-family: 'Space Grotesk', sans-serif;
+            position: relative;
+            padding: 5px 0;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary);
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            padding: 20% 5%;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 600px;
+        }
+
+        .hero h1 {
+            font-family: 'Bebas Neue', cursive;
+            font-size: 5rem;
+            line-height: 0.9;
+            margin-bottom: 1.2rem;
+            letter-spacing: 3px;
+            margin-top:5rem;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.8;
+        }
+
+        
+
+        .cta-btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(255,77,77,0.3);
+        }
+
+      
+        /* Section Common Styles */
+        .section-padding {
+            padding: 6rem 5%;
+        }
+
+        .section-title {
+            font-family: 'Bebas Neue', cursive;
+            font-size: 3.5rem;
+            text-align: center;
+            margin-bottom: 4rem;
+            letter-spacing: 2px;
+        }
+
+        /* Problems & Solutions Section */
+        .problem-solution {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+            margin-top: 2rem;
+        }
+
+        .problem-card, .solution-card {
+            padding: 2.5rem;
+            transition: 0.3s;
+        }
+
+        .problem-card {
+            background: rgba(255,77,77,0.1);
+            border: 1px solid var(--primary);
+        }
+
+        .solution-card {
+            background: rgba(77,121,255,0.1);
+            border: 1px solid var(--accent);
+        }
+
+        /* Products Section */
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .product-card {
+            padding: 2rem;
+            transition: 0.3s;
+            cursor: pointer;
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+            background: rgba(255,255,255,0.05);
+        }
+
+        .pro{
+            width: 100%;
+            height: 250px;
+            object-fit: contain;
+            margin-bottom: 1r<img src="" alt="">em;
+            border-radius: 100%;
+           /* box-shadow: 3px 4px 4px 4px rgba(224,235,23,0.8);*/
+            
+            
+        }
+        
+      
+        
+
+        /* Team Section */
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 3rem;
+            text-align: center;
+        }
+
+        .member-photo {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            margin: 10px;
+            border: 2px solid var(--primary);
+            transition: 0.6s;
+        }
+
+        .member-photo:hover {
+            transform: rotate(360deg);
+        }
+
+        
+
+        /* CTA Section */
+        .cta-section {
+            text-align: center;
+            padding: 6rem 5%;
+            margin: 4rem 0;
+        }
+
+        /* Footer */
+        footer {
+            padding: 4rem 5%;
+            margin-top: 4rem;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+        }
+
+        .footer-col h4 {
+            font-family: 'Space Grotesk', sans-serif;
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-col a {
+            color: white;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 0.8rem;
+            opacity: 0.8;
+            transition: 0.3s;
+        }
+
+        .footer-col a:hover {
+            opacity: 1;
+            transform: translateX(5px);
+        }
+
+        .copyright {
+            text-align: center;
+            margin-top: 3rem;
+            opacity: 0.6;
+        }
+
+        /* Mobile Menu */
+        .menu-toggle {
+            display: none;
+            cursor: pointer;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: rgba(10, 10, 10, 0.9);
+                padding: 1rem;
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .menu-toggle {
+                display: block;
+                color: #e70042eb;
+                font-size: 1.5rem;
+            }
+
+            .hero h1 {
+                font-size: 3.5rem;
+            }
+
+            .products-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        .intro{
+            padding: 30px;
+            margin: 30px;
+            border-radius: 40px;
+            box-shadow: 1px 1px 36px 3px rgba(225, 25, 06, 0.2);
+            
+            
+        }
+        
+         /* Profile */
+         .profile-card {
+            padding: 30px;
+            margin: 35px;
+            border-radius: 40px;
+            box-shadow: 4px 4px 3px 5px rgba(225, 25, 07, 0.2);
+            text-align: center;
+           
+        }
+        .profile-img {
+            width: 186px;
+            height: 176px;
+            border-radius: 100%;
+            object-fit: ;
+            border: solid #3498db;
+            box-shadow: 2px 2px 4px 3px rgba(175, 224, 179, 50.2);
+            
+        }
+          /* Floating Elements Animation */
+        .floating-element {
+            position: absolute;
+            background: var(--glass);
+            backdrop-filter: blur(5px);
+            animation: float 4s infinite linear;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            25% { transform: translateX(100px) rotate(45deg); }
+            50% { transform: translateY(100px) rotate(90deg); }
+            75% { transform: translateX(-100px) rotate(270deg); }
+        }
+        .name{
+            color:#e70068eb;
+            border-radius: 80px;
+           box-shadow: 0px 3px 3px rgba(175, 224, 19, 60.7); 
+           text-align:center;
+           margin: 20px;
+        }
+        .hobbies{
+            padding: 30px;
+            margin: 35px;
+            border-radius: 40px;
+            box-shadow: 4px 4px 3px 5px rgba(225, 25, 07, 0.2);
+            text-align: center;
+        }
+        
+        
+        
+        
+        
+         .container {
+            background: grey;
+            padding:19px;
+            border-radius: 10px;
+            box-shadow: 5px 10px 10px rgba(0, 20, 40, 0.7);
+            
+            
+        }
+        .contact-info {
+            margin: 20px 0;
+            font-size: 18px;
+        }
+        .contact-info a {
+            text-decoration: none;
+            color: #333;
+            font-weight: bold;
+        }
+        .social-links a {
+            display: inline-block;
+            margin: 10px;
+            text-decoration: none;
+            font-size: 20px;
+            color: #333;
+        }
+        /* Icon Colors */
+        .fa-phone-alt { color: #25D366; }  /* WhatsApp Green */
+        .fa-envelope { color: #D44638; }   /* Gmail Red */
+        .fa-instagram { color: #E4405F; }  /* Instagram Pink */
+        .fa-facebook { color: #1877F2; }   /* Facebook Blue */
+        .fa-linkedin { color: #0077B5; }   /* LinkedIn Blue */
+        .social-links a i {
+            margin-right: 8px;
+        }
+         .con {
+            text-align: center;
+            padding: 6rem 5%;
+            margin: 4rem 0;
+        }
+            
+        
+        .resume {
+            padding: 1rem 2.5rem;
+            background: linear-gradient(45deg, var(--primary), var(--accent));
+            border: none;
+            border-radius: 50px;
+            color: white;
+            font-family: 'Space Grotesk', sans-serif;
+            cursor: pointer;
+            transition: 0.3s;
+            text-align: center;
+        }
+
+        .resume:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(255,77,77,0.3);
+            
+        }
+
+     
+        
+        
+        
+        
+        .io{
+            text-align:center;
+        }
+        
+        
+        
+        
+        
+        
+        
+    
+    </style>
+</head>
+ 
+<body>
+    
+    <header class="glass">
+        <div class="logo">Profilo</div>
+         <nav class="nav-links">
+            <a href="#profile">Profile</a>
+            <a href="#problems">Skills</a>
+            <a href="#Hobbies">Hobbies</a>
+            <a href="#team">My Experience</a>
+            <a href="#Contact">Contacts</a>
+           
+        </nav>
+        <div class="menu-toggle">☰</div>
+    </header>
+    
+
+    <section class="hero">
+        <div class="hero-content">
+              </div>
+              <div class="name">
+        <h1>ELAKKIYAN.E</h1>
+    </div>
+            <div class="profile-card">
+              <img src="./img.png" alt="Profile Picture" class="profile-img"></div>  
+            <div class ="intro"><p> "Hello, my name is Elakkiyan. I have a Bachelor's degree in Electronics and Communication Engineering. As a fresher, I am eager to apply my knowledge in areas such as embedded systems, telecommunications, and circuit design. I am passionate about learning new technologies and working on innovative projects. I am looking forward to opportunities where I can contribute and grow professionally."</p>
+            </div>
+            <div class="floating-element" style="top:3%; left:40%; width:100px; height:100px; border-radius:20px;"></div>
+        
+            </section>
+         
+         
+         
+         
+         
+         <div class="io">
+            
+            <button class="resume" onclick="Zip()">Resume view</button>
+       
+       
+       </div>
+       
+       
+       
+       
+       
+           
+    <section class="section-padding" id="profile">
+        <h2 class="section-title">Profile</h2>
+        <div class="products-grid">
+            <div class="product-card glass">
+                <img src="./img.png" alt="img" class="pro">
+                <h3>Elakkiyan.E</h3>
+                <p>BE.Electronics and Communication Engineering.</p>
+                <p>I AM <abbr >Elakkiyan E</abbr>,  from come in city kallakuchi,I am currently passing through in bachelor of engineering in Electronics and communication. Mahendra college of engineering in afflicted to anna university Chennai with 70%.</p>
+            </div>
+            <!-- Add details -->
+        </div>
+    </section>
+
+    <section class="section-padding" id="problems">
+        <h2 class="section-title">Challenges We Solve</h2>
+        <div class="problem-solution">
+            <div class="problem-card glass">
+                <h3>Common Problems</h3>
+                <ul>
+                    <li>Debugging & testings</li>
+                    <li>Complex code</li>
+                    <li>To Use sources</li>
+                </ul>
+            </div>
+            <div class="solution-card glass">
+                <h3>Our Solutions</h3>
+                <ul>
+                    <li>Try</li>
+                    <li>Exception</li>
+                    <li>Finely</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+    
+        <div class="floating-element" style="top:3%; left:40%; width:100px; height:100px; border-radius:20px;"></div>
+
+    <section class="hobbies" id="Hobbies">
+        
+        <h2 class="section-title">Hobbies</h2>
+        <div class="testimonials-grid">
+            <div class="testimonial-card glass">
+                <li>Watching moives</li>
+                <li>Video games</li>
+                <li>Study of codings</li>
+               </div>
+                    
+                    
+                   
+                    
+        </div>
+    </section>
+
+    <section class="section-padding" id="team">
+        <h2 class="section-title">My Experience</h2>
+        <div class="team-grid">
+            <div class="team-member glass">
+                <img src="./img1.png" alt="Leader ship" class="member-photo">
+                <h3>Elakkiyan</h3>
+                <p>Chief Designer</p>
+        </div>
+    </section>
+
+    
+
+ 
+
+    <section class="con" id="Contact"> <h2 class="section-title">Contacts</h2>
+        <div class="glass" style="padding: 1em; border-radius: 20px;">
+            
+            
+            
+            
+            
+            
+            
+            <div class="container">
+        <h1>Contact Us</h1>
+        <p>
+        <div class="contact-info">
+           <i class="fas fa-phone-alt icon"></i> <a href="tel:+91 6379216852">6379216852</a></p>
+            <p><i class="fas fa-envelope icon"></i> <a href="mailto: elakkiyan365@gmail.com">elakkiyan365gmail.com</a></p>
+        </div>
+
+        <div class="social-links">
+            <h2>Follow Us</h2>
+            <p>
+               <a href="https://www.instagram.com/itz._.lucky._.x/?hl=en" target="_blank"><i class="fab fa-instagram icon"></i>Instagram</a> |
+                <a href="https://www.facebook.com/mr.elakkiyan" target="_blank"><i class="fab fa-facebook icon"></i>Facebook</a> |
+                <a href="https://www.linkedin.com/in/elakkiyan-e-1909722a4?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank"><i class="fab fa-linkedin icon"></i>LinkedIn</a>
+            </p>
+        </div>
+    </div>
+            
+            
+            
+            
+          
+              
+           
+         
+    </section>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    <footer class="glass">
+        <div class="footer-grid">
+            <div class="footer-col">
+                <h4>Lucky</h4>
+                <p>Web developer</p>
+            </div>
+            <div class="footer-col">
+                <h4>Links</h4>
+                <a href="#profile">profile</a>
+              <a href="#problems">Skills</a>
+              <a href="#Hobbies">Hobbies</a>
+              <a href="#team">My Experience</a>
+       
+            </div>
+            <div class="footer-col">
+                <h4>Support</h4>
+                
+    
+            
+                 <a href="#Contact">Contacts</a>   <a href="./resume.pdf" download>Resume.pdf</a>
+           
+            </div>
+            <div class="footer-col">
+                
+                
+                
+            
+        </div>
+        <div class="copyright">
+            © 2025 lucky. All rights reserved.
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        const menuToggle = document.querySelector('.menu-toggle');
+        const navLinks = document.querySelector('.nav-links');
+
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        // Scroll Animation
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if(entry.isIntersecting) {
+                    entry.target.style.opacity = 1;
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('section, .product-card, .testimonial-card').forEach((el) => {
+            el.style.opacity = 0;
+            el.style.transform = 'translateY(50px)';
+            el.style.transition = '0.6s all ease';
+            observer.observe(el);
+        });
+
+        // Header Scroll Effect
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            header.style.background = window.scrollY > 100 ? 'rgba(10, 10, 10, 0.8)' : 'transparent';
+        });
+
+
+
+
+function Zip() {
+            window.open('resume.pdf', '_blank');
+        }
+
+
+      
+    </script>
+</body>
+</html>
